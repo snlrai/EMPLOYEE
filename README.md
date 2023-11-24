@@ -151,38 +151,6 @@ This project was created using the following technologies.
 --- -
 ![img-17](https://github.com/berthutapea/mern-employee-salary-management/assets/111676859/7e0c9850-7c71-4fc3-aa7b-86b323fb1b8b)
 
-## Meet The Teams
-
-<center>
-  <table align="center">
-    <tr >
-      <th >Backend Developer</th>
-      <th >Frontend Developer</th>
-    </tr>
-    <tr >
-      <td align="center">
-        <a href="https://github.com/AldiRamdani0401">
-          <img width="200"  src="https://res.cloudinary.com/du541igfh/image/upload/v1690573793/Blog%20Portfolio%20Gilbert/Project/mern-penggajian-karyawan/Aldi_mkw04y.jpg" alt=""><br/>
-          <b>Aldi Ramdani</b>
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/berthutapea">
-          <img width="200"  src="https://res.cloudinary.com/du541igfh/image/upload/v1690573793/Blog%20Portfolio%20Gilbert/Project/mern-penggajian-karyawan/Gilbert_zx9rbq.jpg" alt=""><br/>
-          <b>Gilbert Hutapea</b>
-        </a>
-      </td>
-    </tr>
-  </table>
-</center>
-
-## Author
-- Portfolio: [berthutapea](https://berthutapea.vercel.app/)
-- Github: [berthutapea](https://github.com/berthutapea)
-- Sponsor: [berthutapea](https://saweria.co/berthutapea)
-- Linkedin: [gilberthutapea](https://www.linkedin.com/in/gilberthutapea/)
-- Email: [berthutapea@gmail.com](mailto:berthutapea@gmail.com)
-
 ## License
 
 MIT License
