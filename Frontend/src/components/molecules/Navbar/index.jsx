@@ -9,7 +9,7 @@ import { GiCrossMark } from "react-icons/gi";
 import { FaHome } from "react-icons/fa";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
-import LogoSipeka from '../../../assets/images/logo/logo-sipeka.png'
+import LogoWorkEase from "../../../../public/logo.png"
 import { ButtonThree, DarkModeSwitcher } from "../../atoms";
 
 export default function Navbar() {
@@ -19,9 +19,9 @@ export default function Navbar() {
     };
 
     const navLinks = [
-        { title: "Beranda", link: "/", icon: <FaHome /> },
-        { title: "Tentang", link: "/tentang", icon: <RiFolderInfoFill /> },
-        { title: "Kontak", link: "/kontak", icon: <RiContactsBook2Fill /> },
+        { title: "Home", link: "/", icon: <FaHome /> },
+        { title: "About", link: "/tentang", icon: <RiFolderInfoFill /> },
+        { title: "Contact", link: "/kontak", icon: <RiContactsBook2Fill /> },
     ];
 
     const activeLink = ({ isActive }) => {
@@ -59,8 +59,8 @@ export default function Navbar() {
                 <div>
                     <Link to="/">
                         <img
-                            src={LogoSipeka}
-                            alt="Logo SiPeKa"
+                            src={LogoWorkEase}
+                            alt="Logo Workease"
                             className="w-40"
                             title="Logo SiPeKa"
                         />
