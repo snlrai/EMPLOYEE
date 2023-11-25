@@ -72,9 +72,9 @@ const Contact = () => {
                         animate={viewDiv && "visible"}
                         variants={headingAnimation}
                     >
-                        <h3 className="text-neutral text-center dark:text-white"></h3>
+                        <h3 className="text-neutral text-center dark:text-white">Kontak</h3>
                         <h1 className="text-4xl font-semibold drop-shadow-md text-center text-accent dark:text-white">
-                            Contact <span className="text-primary">Us</span>
+                            Hubungi <span className="text-primary">Kami</span>
                         </h1>
                         <BottomLine />
                     </motion.div>
@@ -93,7 +93,7 @@ const Contact = () => {
                                         type="text"
                                         name="name"
                                         id="name"
-                                        placeholder="Name"
+                                        placeholder="Nama"
                                         required
                                     />
                                     <input
@@ -110,7 +110,7 @@ const Contact = () => {
                                     type="text"
                                     name="subject"
                                     id="subject"
-                                    placeholder="Subject"
+                                    placeholder="Subjek"
                                     required
                                 />
                                 <textarea
@@ -119,7 +119,7 @@ const Contact = () => {
                                     id="message"
                                     cols="30"
                                     rows="5"
-                                    placeholder="Message"
+                                    placeholder="Pesan"
                                     required
                                 ></textarea>
                                 <ButtonThree
@@ -127,7 +127,7 @@ const Contact = () => {
                                     value="Send Message"
                                     className=""
                                 >
-                                    <span>Send</span>
+                                    <span>Kirim</span>
                                     <span><MdSend /></span>
                                 </ButtonThree>
                             </form>
@@ -140,7 +140,7 @@ const Contact = () => {
                         >
                             <div className="flex items-center my-6">
                                 <FaUserAlt className="text-2xl mr-8 text-primary duration-300"></FaUserAlt>
-                                <h3 className="font-medium dark:text-white">Head Manager</h3>
+                                <h3 className="font-medium dark:text-white">PT. Humpus Karbometil Selulosa</h3>
                             </div>
                             <div className="flex items-center my-6">
                                 <FaPhoneAlt className="text-2xl mr-8 text-primary duration-300"></FaPhoneAlt>
@@ -148,13 +148,13 @@ const Contact = () => {
                             </div>
                             <div className="flex items-center my-6">
                                 <MdEmail className="text-3xl mr-8 text-primary duration-300"></MdEmail>
-                                <h3 className="font-medium dark:text-white">info@xxx.com</h3>
+                                <h3 className="font-medium dark:text-white">info@hks.com</h3>
                             </div>
                             <div className="flex items-center my-6">
                                 <FaLocationArrow className="text-2xl mr-8 text-primary duration-300"></FaLocationArrow>
 
                                 <h3 className="font-medium dark:text-white">
-                                    XXXX, XXXX, XXXX
+                                    Karawang, Jawa Barat, Indonesia
                                 </h3>
                             </div>
                             <div className="mt-8 flex items-center">
