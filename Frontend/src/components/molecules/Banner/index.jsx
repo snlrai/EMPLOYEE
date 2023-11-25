@@ -14,11 +14,10 @@ const Banner = () => {
                 transition={{ duration: 1 }}
             >
                 <h1 className="text-3xl font-semibold text-center mb-0 translate-y-[-30%] sm:translate-y-[-0%] text-primary md:text-left">
-                    Sistem Penggajian Karyawan Online
-                    <br />PT. Humpuss Karbometil Selulosa</h1>
+                    Welcome to WorkEase
+                    <br /></h1>
                 <p className="pt-8 text-center max-w-xl mb-6 font-medium translate-y-[-60%] sm:translate-y-[-0%] md:text-left dark:text-white">
-                    Sebuah platform perusahaan untuk mengelola
-                    proses penggajian karyawan secara efisien dan terintegrasi melalui platform digital.
+                    WorkEase is your all-in-one solution for efficient workplace management. Empower your team, streamline processes, and elevate productivity with our intuitive platform.
                 </p>
 
                 <div className="grid justify-center sm:flex sm:justify-start translate-y-[-170%] sm:translate-y-[-0%]">
