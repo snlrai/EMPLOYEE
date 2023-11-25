@@ -1,26 +1,26 @@
-import DataJabatan from "../models/DataJabatanModel.js";
-import DataPegawai from "../models/DataPegawaiModel.js";
+import EmployeeRole from "../models/DataJabatanModel.js";
+import EmployeeData from "../models/DataPegawaiModel.js";
 import { Op } from "sequelize";
 
-// menampilkan semua data jabatan
-export const getDataJabatan = async (req, res) => {
+// Display all job position data
+export const getJobPositionData = async (req, res) => {
     try {
         let response;
         if (req.hak_akses === "admin") {
-            response = await DataJabatan.findAll({
+            response = await EmployeeRole.findAll({
                 attributes: ['id', 'nama_jabatan', 'gaji_pokok', 'tj_transport', 'uang_makan'],
                 include: [{
-                    model: DataPegawai,
+                    model: EmployeeData,
                     attributes: ['nama_pegawai', 'username', 'hak_akses'],
                 }]
             });
         } else {
-            if (req.userId !== DataJabatan.userId) return res.status(403).json({ msg: "Akses terlarang" });
-            await DataJabatan.update({
+            if (req.userId !== EmployeeRole.userId) return res.status(403).json({ msg: "Unauthorized access" });
+            await EmployeeRole.update({
                 nama_jabatan, gaji_pokok, tj_transport, uang_makan
             }, {
                 where: {
-                    [Op.and]: [{ id_jabatan: jabatan.id_jabatan }, { userId: req.userId }]
+                    [Op.and]: [{ id_jabatan: jobPosition.id_jabatan }, { userId: req.userId }]
                 },
             });
         }
@@ -30,35 +30,35 @@ export const getDataJabatan = async (req, res) => {
     }
 }
 
-// method untuk menampilkan data jabatan by ID
-export const getDataJabatanByID = async (req, res) => {
+// Method to display job position data by ID
+export const getJobPositionDataByID = async (req, res) => {
     try {
-        const response = await DataJabatan.findOne({
+        const response = await EmployeeRole.findOne({
             attributes: [
-                'id','nama_jabatan', 'gaji_pokok', 'tj_transport', 'uang_makan'
+                'id', 'nama_jabatan', 'gaji_pokok', 'tj_transport', 'uang_makan'
             ],
             where: {
                 id: req.params.id
             }
         });
-        if(response){
+        if (response) {
             res.status(200).json(response);
-        }else{
-            res.status(404).json({msg: 'Data jabatan dengan ID tersebut tidak ditemukan'});
+        } else {
+            res.status(404).json({ msg: 'Job position data with that ID not found' });
         }
     } catch (error) {
-        res.status(500).json({msg: error.message});
+        res.status(500).json({ msg: error.message });
     }
 }
 
-// method untuk tambah data jabatan
-export const createDataJabatan = async (req, res) => {
+// Method to add job position data
+export const createJobPositionData = async (req, res) => {
     const {
         id_jabatan, nama_jabatan, gaji_pokok, tj_transport, uang_makan
     } = req.body;
     try {
         if (req.hak_akses === "admin") {
-            await DataJabatan.create({
+            await EmployeeRole.create({
                 id_jabatan: id_jabatan,
                 nama_jabatan: nama_jabatan,
                 gaji_pokok: gaji_pokok,
@@ -67,16 +67,16 @@ export const createDataJabatan = async (req, res) => {
                 userId: req.userId
             });
         } else {
-            if (req.userId !== DataJabatan.userId) return res.status(403).json({ msg: "Akses terlarang" });
-            await DataJabatan.update({
+            if (req.userId !== EmployeeRole.userId) return res.status(403).json({ msg: "Unauthorized access" });
+            await EmployeeRole.update({
                 nama_jabatan, gaji_pokok, tj_transport, uang_makan
             }, {
                 where: {
-                    [Op.and]: [{ id_jabatan: jabatan.id_jabatan }, { userId: req.userId }]
+                    [Op.and]: [{ id_jabatan: jobPosition.id_jabatan }, { userId: req.userId }]
                 },
             });
         }
-        res.status(201).json({ success: true, message: "Data Jabatan Berhasil di Simpan" });
+        res.status(201).json({ success: true, message: "Job Position Data Successfully Saved" });
     } catch (error) {
         console.log(error.message);
         res.status(500).json({ success: false, message: error.message });
@@ -84,64 +84,64 @@ export const createDataJabatan = async (req, res) => {
 
 }
 
-// method untuk update data jabatan
-export const updateDataJabatan = async (req, res) => {
+// Method to update job position data
+export const updateJobPositionData = async (req, res) => {
     try {
-        const jabatan = await DataJabatan.findOne({
+        const jobPosition = await EmployeeRole.findOne({
             where: {
                 id: req.params.id
             }
         });
-        if (!jabatan) return res.status(404).json({ msg: "Data tidak ditemukan" });
+        if (!jobPosition) return res.status(404).json({ msg: "Data not found" });
         const { nama_jabatan, gaji_pokok, tj_transport, uang_makan } = req.body;
         if (req.hak_akses === "admin") {
-            await DataJabatan.update({
+            await EmployeeRole.update({
                 nama_jabatan, gaji_pokok, tj_transport, uang_makan
             }, {
                 where: {
-                    id: jabatan.id
+                    id: jobPosition.id
                 }
             });
         } else {
-            if (req.userId !== DataJabatan.userId) return res.status(403).json({ msg: "Akses terlarang" });
-            await DataJabatan.update({
+            if (req.userId !== EmployeeRole.userId) return res.status(403).json({ msg: "Unauthorized access" });
+            await EmployeeRole.update({
                 nama_jabatan, gaji_pokok, tj_transport, uang_makan
             }, {
                 where: {
-                    [Op.and]: [{ id_jabatan: jabatan.id_jabatan }, { userId: req.userId }]
+                    [Op.and]: [{ id_jabatan: jobPosition.id_jabatan }, { userId: req.userId }]
                 },
             });
         }
-        res.status(200).json({ msg: "Data Jabatan Berhasil di Pebarui" });
+        res.status(200).json({ msg: "Job Position Data Successfully Updated" });
     } catch (error) {
         res.status(500).json({ msg: error.message });
     }
 }
 
-// method untuk delete data jabatan
-export const deleteDataJabatan = async (req, res) => {
+// Method to delete job position data
+export const deleteJobPositionData = async (req, res) => {
     try {
-        const jabatan = await DataJabatan.findOne({
+        const jobPosition = await EmployeeRole.findOne({
             where: {
                 id: req.params.id
             }
         });
-        if (!jabatan) return res.status(404).json({ msg: "Data tidak ditemukan" });
+        if (!jobPosition) return res.status(404).json({ msg: "Data not found" });
         if (req.hak_akses === "admin") {
-            await jabatan.destroy({
+            await jobPosition.destroy({
                 where: {
-                    id: jabatan.id
+                    id: jobPosition.id
                 }
             });
         } else {
-            if (req.userId !== jabatan.userId) return res.status(403).json({ msg: "Akses terlarang" });
-            await jabatan.destroy({
+            if (req.userId !== jobPosition.userId) return res.status(403).json({ msg: "Unauthorized access" });
+            await jobPosition.destroy({
                 where: {
-                    [Op.and]: [{ id_jabatan: jabatan.id_jabatan }, { userId: req.userId }]
+                    [Op.and]: [{ id_jabatan: jobPosition.id_jabatan }, { userId: req.userId }]
                 },
             });
         }
-        res.status(200).json({ msg: "Data Jabatan Berhasil di Hapus" });
+        res.status(200).json({ msg: "Job Position Data Successfully Deleted" });
     } catch (error) {
         res.status(500).json({ msg: error.message });
     }
