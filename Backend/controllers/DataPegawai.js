@@ -1,11 +1,11 @@
-import DataPegawai from "../models/DataPegawaiModel.js";
+import EmployeeData from "../models/DataPegawaiModel.js";
 import argon2 from "argon2";
 import path from "path";
 
 // menampilkan semua data Pegawai
 export const getDataPegawai = async (req, res) => {
     try {
-        const response = await DataPegawai.findAll({
+        const response = await EmployeeData.findAll({
             attributes: [
                 'id', 'nik', 'nama_pegawai',
                 'jenis_kelamin', 'jabatan', 'tanggal_masuk',
@@ -21,7 +21,7 @@ export const getDataPegawai = async (req, res) => {
 // method untuk mencari data Pegawai berdasarkan ID
 export const getDataPegawaiByID = async (req, res) => {
     try {
-        const response = await DataPegawai.findOne({
+        const response = await EmployeeData.findOne({
             attributes: [
                 'id', 'nik', 'nama_pegawai',
                 'jenis_kelamin', 'jabatan', 'username', 'tanggal_masuk',
@@ -44,7 +44,7 @@ export const getDataPegawaiByID = async (req, res) => {
 // method untuk mencari data pegawai berdasarkan NIK
 export const getDataPegawaiByNik = async (req, res) => {
     try {
-        const response = await DataPegawai.findOne({
+        const response = await EmployeeData.findOne({
             attributes: [
                 'id', 'nik', 'nama_pegawai',
                 'jenis_kelamin', 'jabatan', 'tanggal_masuk',
@@ -68,7 +68,7 @@ export const getDataPegawaiByNik = async (req, res) => {
 // method untuk mencari data pegawai berdasarkan Nama
 export const getDataPegawaiByName = async (req, res) => {
     try {
-        const response = await DataPegawai.findOne({
+        const response = await EmployeeData.findOne({
             attributes: [
                 'id', 'nik', 'nama_pegawai',
                 'jenis_kelamin', 'jabatan', 'tanggal_masuk',
@@ -128,7 +128,7 @@ export const createDataPegawai = async (req, res) => {
         const hashPassword = await argon2.hash(password);
 
         try {
-            await DataPegawai.create({
+            await EmployeeData.create({
                 nik: nik,
                 nama_pegawai: nama_pegawai,
                 username: username,
@@ -153,7 +153,7 @@ export const createDataPegawai = async (req, res) => {
 
 // method untuk update data Pegawai
 export const updateDataPegawai = async (req, res) => {
-    const pegawai = await DataPegawai.findOne({
+    const pegawai = await EmployeeData.findOne({
         where: {
             id: req.params.id
         }
@@ -168,7 +168,7 @@ export const updateDataPegawai = async (req, res) => {
     } = req.body;
 
     try {
-        await DataPegawai.update({
+        await EmployeeData.update({
             nik: nik,
             nama_pegawai: nama_pegawai,
             username: username,
@@ -190,7 +190,7 @@ export const updateDataPegawai = async (req, res) => {
 
 // Method untuk update password Pegawai
 export const changePasswordAdmin = async (req, res) => {
-    const pegawai = await DataPegawai.findOne({
+    const pegawai = await EmployeeData.findOne({
         where: {
             id: req.params.id
         }
@@ -207,7 +207,7 @@ export const changePasswordAdmin = async (req, res) => {
         if (pegawai.hak_akses === "pegawai") {
             const hashPassword = await argon2.hash(password);
 
-            await DataPegawai.update(
+            await EmployeeData.update(
                 {
                     password: hashPassword
                 },
@@ -230,14 +230,14 @@ export const changePasswordAdmin = async (req, res) => {
 
 // method untuk delete data Pegawai
 export const deleteDataPegawai = async (req, res) => {
-    const pegawai = await DataPegawai.findOne({
+    const pegawai = await EmployeeData.findOne({
         where: {
             id: req.params.id
         }
     });
     if (!pegawai) return res.status(404).json({ msg: "Data Pegawai tidak ditemukan" });
     try {
-        await DataPegawai.destroy({
+        await EmployeeData.destroy({
             where: {
                 id: pegawai.id
             }
