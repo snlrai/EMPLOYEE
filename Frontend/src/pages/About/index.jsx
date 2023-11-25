@@ -26,9 +26,9 @@ const About = () => {
                                 transition: { duration: 1, type: "spring" },
                             }}
                         >
-                            <h3 className="text-neutral text-center dark:text-white">About</h3>
+                            <h3 className="text-neutral text-center dark:text-white">Apa itu SiPeKa ?</h3>
                             <h1 className="text-4xl font-semibold drop-shadow-md text-center text-accent dark:text-white">
-                                WORK<span className="text-primary">EASE</span>
+                                Tentang <span className="text-primary">Kami</span>
                             </h1>
                             <BottomLine />
                         </motion.div>
@@ -43,9 +43,9 @@ const About = () => {
                             >
                                 <img
                                     src={aboutImg}
-                                    alt="Key Features"
+                                    alt="About SiPeKa"
                                     className="w-100 h-100 transform translate-y-[-12%]"
-                                    title="Key Features"
+                                    title="About SiPeKa"
                                 />
 
                             </motion.div>
@@ -58,14 +58,14 @@ const About = () => {
                                 }}
                             >
                                 <p className="font-medium text-center translate-y-[-60%] sm:translate-y-[-0%] sm:mb-2 md:text-left dark:text-white">
-                                    Streamlined Onboarding:Accelerate the Onboarding process for new hires with our digital onboarding system.Say goodbye to paperwork and hello to a seamless integration experience.<br />
-                                    Innovative Employee Profiles:Foster a sense of communitywith visually appealling and interactive employee profiles. Highlight skills, achivements, and personal interests.
+                                    SiPeKa ( Sistem Penggajian Karyawan ) adalah suatu sistem yang digunakan oleh perusahaan untuk mengelola proses penggajian karyawan secara efisien dan akurat.
+                                    Sistem ini memainkan peran kunci dalam mengotomatisasi berbagai tugas terkait penggajian, seperti perhitungan gaji, pemrosesan absensi, dan pembayaran upah karyawan.
                                 </p>
                                 <br />
                                 <p className="font-medium text-center translate-y-[-50%] sm:translate-y-[-0%] sm:mb-2 md:text-left dark:text-white">
-                                    Automated Salary Calculations:Take the Hassel out of payroll managment. Our automated system ensures accuracte and transperent salary calculations.<br />
-                                    Advanced Efficincy Tracking:Monitor Performance with our advanced tracking system. Set goals, track progress, and provide real-time feedbackto enhance employee productivity.
-                                    
+                                    Dalam SiPeKa, informasi karyawan seperti data pribadi, jabatan, dan tingkat gaji disimpan secara terpusat.
+                                    Setiap bulan, sistem akan mengambil data absensi karyawan dan melakukan perhitungan gaji berdasarkan informasi yang ada.
+                                    Hal ini mencakup faktor-faktor seperti jam kerja, cuti, lembur, dan potongan yang relevan.
                                 </p>
                             </motion.div>
                         </div>

@@ -10,14 +10,14 @@ function Login() {
             <div className="flex flex-wrap items-center min-h-screen">
                 <div className="hidden w-full xl:block xl:w-1/2">
                     <div className="py-18.5 px-26 text-center ">
-                        {/* <span className="mb-5.5 inline-block ">
+                        <span className="mb-5.5 inline-block ">
                             <img
                                 className="w-80"
                                 src={LogoSipeka}
                                 alt='Logo SiPeKa'
                                 title='Logo SiPeKa'
                             />
-                        </span> */}
+                        </span>
                         <p className="2xl:px-20 text-black dark:text-white">Sistem Penggajian Karyawan Online
                             <br /> PT. Humpuss Karbometil Selulosa</p>
                         <img className="mt-15 inline-block" src={LoginImg} alt="Logo" />
