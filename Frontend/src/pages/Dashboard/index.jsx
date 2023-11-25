@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { DefaultDashboard } from '../../components';
+import { APP } from '../../../../dash/src/App'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getMe } from '../../config/redux/action';
@@ -20,7 +21,10 @@ const Dashboard = () => {
     }, [isError, navigate]);
 
     return (
-        <DefaultDashboard />
+        <div>
+            <APP />
+            <DefaultDashboard />
+        </div>
     );
 };
 
